@@ -1,0 +1,32 @@
+package main
+
+import "fmt"
+
+type lan interface {
+	getMessage() string
+}
+
+type englishBot struct{}
+type hindiBot struct{}
+
+func main() {
+
+	e := englishBot{}
+	h := hindiBot{}
+
+	printHello(e)
+	printHello(h)
+
+}
+
+func printHello(l lan) {
+	fmt.Println(l.getMessage())
+}
+
+func (e englishBot) getMessage() string {
+	return "Hi I am english"
+}
+
+func (h hindiBot) getMessage() string {
+	return "Hi I am hindi"
+}
